@@ -7,29 +7,29 @@ const zhNavbar = {
   },
   items: [
     {
-      to: "https://newzone.top/posts/2023-02-27-chatgpt_shortcuts.html",
-      label: "ChatGPT 使用说明",
+      to: "https://chat.openai.com/chat",
+      label: "ChatGPT官网",
       position: "left",
     },
     {
-      to: "https://nav.newzone.top",
-      label: "开源工具导航",
+      to: "https://nchat.aihub.ren/",
+      label: "免翻墙镜像",
       position: "left",
     },
     {
-      href: 'https://www.producthunt.com/posts/chatgpt-shortcut?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chatgpt&#0045;shortcut',
-      label: 'Find on Product Hunt',
+      href: 'https://faka.azad.asia/buy/42',
+      label: '获取账号API',
       target: '_blank',
       position: 'left',
     },
     { type: "localeDropdown", position: "right" },
     {
-      href: "https://github.com/rockbenben/ChatGPT-Shortcut",
+      href: "https://alist.azad.asia/",
       position: "right",
       className: "header-github-link",
     },
     {
-      href: "https://discord.gg/PZTQfJ4GjX",
+      href: "https://ss.azad.asia/",
       position: "right",
       className: "header-discord-link",
     },
