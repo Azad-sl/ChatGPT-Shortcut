@@ -1,0 +1,247 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+:root {
+  /*
+   See css var + hsl color palette technique:
+   https://blog.maximeheckel.com/posts/the-power-of-composition-with-css-variables/
+    */
+  --site-primary-hue-saturation: 167 68%;
+  --site-primary-hue-saturation-light: 167 56%; /* do we really need this extra one? */
+  --site-color-favorite-background: #f6fdfd;
+  --site-color-tooltip: #fff;
+  --site-color-tooltip-background: #353738;
+  --site-color-svg-icon-favorite: #e9669e;
+  --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 25%);
+  --site-color-feedback-background: #fff;
+  --docusaurus-highlighted-code-line-bg: rgb(0 0 0 / 10%);
+  /* Use a darker color to ensure contrast, ideally we don't need important */
+  --ifm-breadcrumb-color-active: var(--ifm-color-primary-darker) !important;
+  --ifm-menu-color-active: var(--ifm-color-primary-darker) !important;
+}
+
+html[data-theme="dark"] {
+  --site-color-feedback-background: #f0f8ff;
+  --site-color-favorite-background: #1d1e1e;
+  --site-color-checkbox-checked-bg: hsl(167deg 56% 73% / 10%);
+  --docusaurus-highlighted-code-line-bg: rgb(66 66 66 / 35%);
+}
+
+/*
+  * This selector will be dynamically replaced by the color generator. Don't put
+  * other properties here.
+  */
+[data-theme="light"] {
+  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 30%);
+  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 26%);
+  --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 23%);
+  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 17%);
+
+  --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 39%);
+  --ifm-color-primary-lighter: hsl(
+    var(--site-primary-hue-saturation-light) 47%
+  );
+  --ifm-color-primary-lightest: hsl(
+    var(--site-primary-hue-saturation-light) 58%
+  );
+}
+
+/*
+  * This selector will be dynamically replaced by the color generator. Don't put
+  * other properties here.
+  */
+[data-theme="dark"] {
+  --ifm-color-primary: hsl(var(--site-primary-hue-saturation) 45%);
+  --ifm-color-primary-dark: hsl(var(--site-primary-hue-saturation) 41%);
+  --ifm-color-primary-darker: hsl(var(--site-primary-hue-saturation) 38%);
+  --ifm-color-primary-darkest: hsl(var(--site-primary-hue-saturation) 32%);
+
+  --ifm-color-primary-light: hsl(var(--site-primary-hue-saturation-light) 54%);
+  --ifm-color-primary-lighter: hsl(
+    var(--site-primary-hue-saturation-light) 62%
+  );
+  --ifm-color-primary-lightest: hsl(
+    var(--site-primary-hue-saturation-light) 73%
+  );
+}
+
+.header-github-link:hover {
+  opacity: 0.6;
+}
+
+.header-github-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M808.277333 474.112C789.632 327.253333 663.893333 213.333333 512 213.333333 394.410667 213.333333 292.266667 282.069333 245.632 390.4 153.984 417.792 85.333333 504.32 85.333333 597.333333c0 117.632 95.701333 213.333333 213.333334 213.333334h469.333333c94.122667 0 170.666667-76.544 170.666667-170.666667a171.093333 171.093333 0 0 0-130.389334-165.888zM768 725.333333H298.666667c-70.570667 0-128-57.429333-128-128 0-59.904 51.157333-117.589333 114.048-128.64l24.789333-4.352 8.192-23.808C347.690667 353.024 422.186667 298.666667 512 298.666667c117.632 0 213.333333 95.701333 213.333333 213.333333v42.666667h42.666667c47.061333 0 85.333333 38.272 85.333333 85.333333s-38.272 85.333333-85.333333 85.333333z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+[data-theme="dark"] .header-github-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M808.277333 474.112C789.632 327.253333 663.893333 213.333333 512 213.333333 394.410667 213.333333 292.266667 282.069333 245.632 390.4 153.984 417.792 85.333333 504.32 85.333333 597.333333c0 117.632 95.701333 213.333333 213.333334 213.333334h469.333333c94.122667 0 170.666667-76.544 170.666667-170.666667a171.093333 171.093333 0 0 0-130.389334-165.888zM768 725.333333H298.666667c-70.570667 0-128-57.429333-128-128 0-59.904 51.157333-117.589333 114.048-128.64l24.789333-4.352 8.192-23.808C347.690667 353.024 422.186667 298.666667 512 298.666667c117.632 0 213.333333 95.701333 213.333333 213.333333v42.666667h42.666667c47.061333 0 85.333333 38.272 85.333333 85.333333s-38.272 85.333333-85.333333 85.333333z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+.header-discord-link:hover {
+  opacity: 0.6;
+}
+
+.header-discord-link::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  display: flex;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M954.393689 486.469534l-0.686638 0c-12.847609-233.459123-206.825532-419.442978-443.425182-419.442978-244.88536 0-444.116937 199.2326-444.116937 444.11796 0 244.881267 199.230554 444.11182 444.116937 444.11182 244.87922 0 444.110797-199.230554 444.110797-444.11182 0-7.686053-0.196475-15.32708-0.584308-22.917966L954.393689 486.469534zM133.620253 670.664649c-20.203134-45.630247-31.872918-95.331205-32.783661-147.187247l149.923568 0c0.415462 52.483328 5.799076 102.237499 15.438621 148.039661L140.183739 671.517063 133.620253 670.664649zM522.615779 301.420981 522.615779 104.037495l-3.165086-1.36509c72.194252 9.844206 140.828422 89.218998 180.866301 198.748576L522.615779 301.420981zM712.405309 338.429873c13.33675 46.076408 21.698185 96.252181 23.50432 148.039661L522.615779 486.469534 522.615779 338.429873 712.405309 338.429873zM485.605863 103.310947l0 198.111057L319.439356 301.422004C355.426989 194.099696 416.442644 115.572202 485.605863 103.310947zM485.605863 338.429873l0 148.039661L285.99464 486.469534c2.227738-51.738361 10.053983-101.926414 22.338774-148.039661L485.605863 338.429873zM251.29535 486.469534 101.93767 486.469534c3.980661-52.02898 18.043958-102.143355 40.190351-148.039661l129.105427 0C260.119319 384.294456 253.228375 434.136631 251.29535 486.469534zM285.376563 523.477402l200.230324 0L485.606887 671.517063 304.672024 671.517063C292.826232 625.425306 285.915845 575.352887 285.376563 523.477402zM485.605863 708.524932l0 208.085222c-69.969585-18.518772-134.104277-99.099019-170.09191-208.085222L485.605863 708.524932zM522.615779 920.448576 522.615779 708.524932l184.212512 0C669.565619 829.42242 600.75851 915.840628 522.615779 920.448576zM522.615779 671.517063 522.615779 523.477402l213.471906 0c-1.218758 51.758828-7.944949 101.857852-19.11229 148.039661L522.615779 671.517063zM769.797437 523.477402l149.928684 0c-0.862647 52.178383-11.979846 102.176101-31.397081 148.039661l-133.971247 0C763.998361 625.714901 769.382998 575.960731 769.797437 523.477402zM769.262248 486.469534c-1.933025-52.331879-8.823969-102.175077-19.937075-148.039661L876.148627 338.429873c23.269983 45.896306 38.175461 96.009657 42.399669 148.039661L769.262248 486.469534zM855.012238 301.420981 739.183186 301.420981c-22.285562-72.507384-55.711859-132.844587-96.890724-174.137039C729.395262 160.310126 804.862048 222.909859 855.012238 301.420981zM384.27706 121.440863c-43.940768 41.34157-79.541591 103.97712-102.902648 179.981141L162.274874 301.422004C213.143425 218.003106 291.867394 152.545278 384.27706 121.440863zM152.848177 708.524932l122.2943 0c21.618367 78.83244 56.549947 143.574976 100.562347 186.930413C282.002722 861.058954 201.997574 793.811364 152.848177 708.524932zM639.005602 901.045667c46.76714-43.283806 83.842547-110.22645 106.408495-192.520735l124.977409 0C820.87065 798.700721 737.902006 868.711238 639.005602 901.045667z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+
+[data-theme="dark"] .header-discord-link::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='white' d='M954.393689 486.469534l-0.686638 0c-12.847609-233.459123-206.825532-419.442978-443.425182-419.442978-244.88536 0-444.116937 199.2326-444.116937 444.11796 0 244.881267 199.230554 444.11182 444.116937 444.11182 244.87922 0 444.110797-199.230554 444.110797-444.11182 0-7.686053-0.196475-15.32708-0.584308-22.917966L954.393689 486.469534zM133.620253 670.664649c-20.203134-45.630247-31.872918-95.331205-32.783661-147.187247l149.923568 0c0.415462 52.483328 5.799076 102.237499 15.438621 148.039661L140.183739 671.517063 133.620253 670.664649zM522.615779 301.420981 522.615779 104.037495l-3.165086-1.36509c72.194252 9.844206 140.828422 89.218998 180.866301 198.748576L522.615779 301.420981zM712.405309 338.429873c13.33675 46.076408 21.698185 96.252181 23.50432 148.039661L522.615779 486.469534 522.615779 338.429873 712.405309 338.429873zM485.605863 103.310947l0 198.111057L319.439356 301.422004C355.426989 194.099696 416.442644 115.572202 485.605863 103.310947zM485.605863 338.429873l0 148.039661L285.99464 486.469534c2.227738-51.738361 10.053983-101.926414 22.338774-148.039661L485.605863 338.429873zM251.29535 486.469534 101.93767 486.469534c3.980661-52.02898 18.043958-102.143355 40.190351-148.039661l129.105427 0C260.119319 384.294456 253.228375 434.136631 251.29535 486.469534zM285.376563 523.477402l200.230324 0L485.606887 671.517063 304.672024 671.517063C292.826232 625.425306 285.915845 575.352887 285.376563 523.477402zM485.605863 708.524932l0 208.085222c-69.969585-18.518772-134.104277-99.099019-170.09191-208.085222L485.605863 708.524932zM522.615779 920.448576 522.615779 708.524932l184.212512 0C669.565619 829.42242 600.75851 915.840628 522.615779 920.448576zM522.615779 671.517063 522.615779 523.477402l213.471906 0c-1.218758 51.758828-7.944949 101.857852-19.11229 148.039661L522.615779 671.517063zM769.797437 523.477402l149.928684 0c-0.862647 52.178383-11.979846 102.176101-31.397081 148.039661l-133.971247 0C763.998361 625.714901 769.382998 575.960731 769.797437 523.477402zM769.262248 486.469534c-1.933025-52.331879-8.823969-102.175077-19.937075-148.039661L876.148627 338.429873c23.269983 45.896306 38.175461 96.009657 42.399669 148.039661L769.262248 486.469534zM855.012238 301.420981 739.183186 301.420981c-22.285562-72.507384-55.711859-132.844587-96.890724-174.137039C729.395262 160.310126 804.862048 222.909859 855.012238 301.420981zM384.27706 121.440863c-43.940768 41.34157-79.541591 103.97712-102.902648 179.981141L162.274874 301.422004C213.143425 218.003106 291.867394 152.545278 384.27706 121.440863zM152.848177 708.524932l122.2943 0c21.618367 78.83244 56.549947 143.574976 100.562347 186.930413C282.002722 861.058954 201.997574 793.811364 152.848177 708.524932zM639.005602 901.045667c46.76714-43.283806 83.842547-110.22645 106.408495-192.520735l124.977409 0C820.87065 798.700721 737.902006 868.711238 639.005602 901.045667z'/%3E%3C/svg%3E")
+    no-repeat;
+}
+.footer--dark {
+  --ifm-footer-background-color: #2b3137;
+}
+
+.unique-tabs .tabs__item {
+  line-height: 16px;
+  margin-right: 8px;
+}
+
+.unique-tabs .tabs__item--active {
+  border: 0;
+  color: #fff;
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-tabs-color-active);
+}
+
+[data-theme="light"] .themedDocusaurus [fill="#FFFF50"] {
+  fill: greenyellow;
+}
+
+[data-theme="dark"] .themedDocusaurus [fill="#FFFF50"] {
+  fill: seagreen;
+}
+
+[data-theme="light"] .DocSearch {
+  /* --docsearch-primary-color: var(--ifm-color-primary); */
+  /* --docsearch-text-color: var(--ifm-font-color-base); */
+  --docsearch-muted-color: var(--ifm-color-emphasis-700);
+  --docsearch-container-background: rgb(94 100 112 / 70%);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-color-secondary-lighter);
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-color-secondary);
+  --docsearch-searchbox-focus-background: var(--ifm-color-white);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-white);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-color-white);
+}
+
+[data-theme="dark"] .DocSearch {
+  --docsearch-text-color: var(--ifm-font-color-base);
+  --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+  --docsearch-container-background: rgb(47 55 69 / 70%);
+  /* Modal */
+  --docsearch-modal-background: var(--ifm-background-color);
+  /* Search box */
+  --docsearch-searchbox-background: var(--ifm-background-color);
+  --docsearch-searchbox-focus-background: var(--ifm-color-black);
+  /* Hit */
+  --docsearch-hit-color: var(--ifm-font-color-base);
+  --docsearch-hit-active-color: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
+  /* Footer */
+  --docsearch-footer-background: var(--ifm-background-surface-color);
+  --docsearch-key-gradient: linear-gradient(
+    -26.5deg,
+    var(--ifm-color-emphasis-200) 0%,
+    var(--ifm-color-emphasis-100) 100%
+  );
+}
+
+div[class^="announcementBar_"] {
+  --site-announcement-bar-stripe-color1: hsl(
+    var(--site-primary-hue-saturation) 85%
+  );
+  --site-announcement-bar-stripe-color2: hsl(
+    var(--site-primary-hue-saturation) 95%
+  );
+  background: repeating-linear-gradient(
+    35deg,
+    var(--site-announcement-bar-stripe-color1),
+    var(--site-announcement-bar-stripe-color1) 20px,
+    var(--site-announcement-bar-stripe-color2) 10px,
+    var(--site-announcement-bar-stripe-color2) 40px
+  );
+  font-weight: bold;
+}
+
+.screen-reader-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+[data-theme="light"] img[src$="#gh-dark-mode-only"],
+[data-theme="dark"] img[src$="#gh-light-mode-only"] {
+  display: none;
+}
+
+/* Used to test CSS insertion order */
+.test-marker-site-custom-css-unique-rule {
+  content: "site-custom-css-unique-rule";
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.yt-lite > .lty-playbtn {
+  cursor: pointer;
+  border: 0;
+}
+
+.dropdown-separator {
+  margin: 0.3rem 0;
+}
+
+.dropdown-archived-versions {
+  font-size: 0.875rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.code-block-error-line {
+  background-color: #ff000020;
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+  border-left: 3px solid #ff000080;
+}
+
+[data-rmiz-modal-overlay="visible"] {
+  background-color: rgba(255 255 255 / 95%);
+}
+
+[data-theme="dark"] [data-rmiz-modal-overlay="visible"] {
+  background-color: rgba(0 0 0 / 95%);
+}
