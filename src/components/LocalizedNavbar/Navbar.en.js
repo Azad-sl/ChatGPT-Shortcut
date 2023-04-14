@@ -7,19 +7,19 @@ const enNavbar = {
   },
   items: [
     {
-      href: 'https://www.producthunt.com/posts/chatgpt-shortcut?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-chatgpt&#0045;shortcut',
-      label: 'Find on Product Hunt',
+      href: 'https://faka.azad.asia/buy/42',
+      label: '稳定账号API',
       target: '_blank',
       position: 'left',
     },
     { type: "localeDropdown", position: "right" },
     {
-      href: "https://github.com/rockbenben/ChatGPT-Shortcut",
+      href: "https://alist.azad.asia/",
       position: "right",
       className: "header-github-link",
     },
     {
-      href: "https://discord.gg/PZTQfJ4GjX",
+      href: "https://ss.azad.asia/",
       position: "right",
       className: "header-discord-link",
     },
