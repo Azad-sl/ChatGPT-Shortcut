@@ -12,7 +12,7 @@ const zhNavbar = {
       position: "left",
     },
     {
-      to: "https://nchat.aihub.ren/",
+      to: "http://gptfabu.azad.asia/",
       label: "免翻墙镜像",
       position: "left",
     },
