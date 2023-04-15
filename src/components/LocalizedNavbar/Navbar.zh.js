@@ -12,7 +12,7 @@ const zhNavbar = {
       position: "left",
     },
     {
-      to: "http://gptfabu.azad.asia/",
+      to: "http://gptyindao.azad.asia/",
       label: "免翻墙镜像",
       position: "left",
     },
